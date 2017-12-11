@@ -1,0 +1,1399 @@
+<html>
+<head>
+<style>
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid;
+    border-color: #CCD1D1;
+}
+#for
+{
+	height: 190px;
+	width: 350px;
+	border: 1px solid;
+	border-color: #CCD1D1;
+	background-color: #F2F3F4;
+}
+.container {
+
+	border: 1px solid #CCD1D1;
+	margin-top: 10px;
+	
+
+}
+.hr{
+	color: 1px solid grey;
+}
+</style>
+</head>
+<body onload = "hello()" >
+<script>
+
+ function saveComment() {
+
+    var comment1 = document.getElementById("name").value;
+    if (comment1 == "") {
+        alert("Please enter a symbol");
+        return false;
+    }
+    
+
+    localStorage.setItem("comment1", comment1);
+
+    //alert("Your comment has been saved!");
+
+    //location.reload();
+
+    return true;
+    //return true;
+}
+function forClear(){
+
+	document.getElementById("name").value= "";
+	document.getElementsByClassName("container")[0].innerHTML="";
+	document.getElementById("replace").innerHTML= "";
+	document.getElementById("three").innerHTML= "";
+	document.getElementById("four").innerHTML= "";
+
+
+	return false;
+}
+
+
+</script>
+
+<script src = "https://code.highcharts.com/highcharts.js"></script>
+<center>
+<div id="for">
+<h1><center><i>Stock Search</i></center></h1>
+
+<hr>
+<form method="post" action=""  id = "cform" name="cform">
+Enter Stock Ticker Symbol:* <input type="text"  id = "name" name="name"><br>
+<br>
+
+
+<input type="submit" name="Search" value="Search" onclick="return saveComment();">
+<input type="submit" value="Clear" onclick="return forClear();">
+<br>
+<i>*-Mandatory Fields</i>
+<br>
+</form>
+
+
+</div>
+<br>
+</center>
+<center>
+<div id="four" width= "1000px">
+
+<?php  
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
+$var1 = $_POST["name"];
+$json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='.$var1.'&apikey=BVFQG1A5Y8XQTOQG&outputsize=full');
+//echo substr($json,7,5);
+//echo $json;
+if(substr($json, 7,5)=="Error"){
+	echo "<html><body><table border='1'> <tr><td>Error</td><td> Error: NO recorded has been found, please enter a valid symbol</td></tr></table></center></body></html>";
+}
+?>
+<script type="text/javascript">
+	document.getElementById("name").value = localStorage.getItem("comment1");
+
+</script>
+<?php
+$obj = json_decode($json,true);
+
+if (!empty($obj["Time Series (Daily)"])	) {
+$obj1 = $obj['Time Series (Daily)'];
+$obj2 = array_values($obj1)[0];
+$open = array_values($obj2)[0];
+$close = array_values($obj2)[3];
+$obj3 = array_values($obj1)[1];
+$prev_close = array_values($obj3)[3];
+$change = round($close - $prev_close,2);
+$range = array_values($obj2)[2] . '-' . array_values($obj2)[1];
+$volume = array_values($obj2)[4];
+$date = array_keys($obj1)[0];
+$change_percent = round(($change/$close)*100,2);
+//echo $open,$close,$prev_close,$change,$range,$volume,$date;
+
+
+
+echo "<html><body><center><table border='1' width='1000px'><tr><td bgcolor='#F2F3F4'><b> Stock Ticker Symbol </b></td> <td align = 'center'>" . $var1 . "</td></tr>";
+echo "<tr><td  bgcolor='#F2F3F4'><b> Close</b></td><td align = 'center'>" . $close . "</td></tr>";
+echo "<tr><td bgcolor='#F2F3F4'><b> Open </b></td><td align = 'center'>" . $open . "</td></tr>";
+echo "<tr><td bgcolor='#F2F3F4'><b> Previous Close </b></td><td align = 'center'>" . $prev_close . "</td></tr>";
+echo "<tr><td bgcolor='#F2F3F4'><b> Change </b></td><td align = 'center'>" . $change;
+if ($change >=0){
+echo "<img src='Green_Arrow_Up.png' width='10px'></td></tr>";
+}
+else{
+echo "<img src='Red_Arrow_Down.png' width='10px'></td></tr>";
+}
+echo "<tr><td bgcolor='#F2F3F4'><b> Change Percent </b></td><td align = 'center'>" . $change_percent;
+if($change_percent>=0){
+	echo "<img src='Green_Arrow_Up.png' width='10px'></td></tr>";
+
+}
+else{
+	echo "<img src='Red_Arrow_Down.png' width='10px'></td></tr>";
+}
+echo "<tr><td bgcolor='#F2F3F4'><b> Day's Range </b></td><td align = 'center'>" . $range . "</td></tr>";
+echo "<tr><td bgcolor='#F2F3F4'><b> Volume </b></td><td align = 'center'>" . $volume . "</td></tr>";
+echo "<tr><td bgcolor='#F2F3F4'><b> Timestamp </b></td><td align = 'center'>" . $date . "</td></tr>";
+echo "<tr><td bgcolor='#F2F3F4'><b> Indicators </b></td><td align = 'center'>
+<a href='javascript:void(0)' onclick='hello()' >Price </a>
+<a id='SMA' href='javascript:void(0)' onclick='Javascript:first(this.id,myjsvar);'>SMA</a>
+<a id='EMA' href='javascript:void(0)' onclick='Javascript:first(this.id,myjsvar);'>EMA</a>
+<a id='STOCH' href='javascript:void(0)' onclick='Javascript:first(this.id,myjsvar);'>STOCH</a>
+<a id='RSI' href='javascript:void(0)' onclick='Javascript:first(this.id,myjsvar);'>RSI</a>
+<a id='ADX' href='javascript:void(0)' onclick='Javascript:first(this.id,myjsvar);'>ADX</a>
+
+<a id='CCI' href='javascript:void(0)' onclick='Javascript:first(this.id,myjsvar);'>CCI</a>
+<a id='BBANDS' href='javascript:void(0)' onclick='Javascript:first(this.id,myjsvar);'>BBANDS</a>
+<a id='MACD' href='javascript:void(0)' onclick='Javascript:first(this.id,myjsvar);'>MACD</a> </td></tr></table></body></html>";
+
+
+
+
+
+$obj9 = sizeof($obj1);
+$date = array_keys($obj1)[0];
+$date4=[];
+
+
+$ret=[];
+
+$volume= [];
+$price_ar = [];
+$obj10 = [];
+$cost_arr = [];
+
+for($i=0;$i<=120;$i++){
+$obj8 = array_values($obj1)[$i];
+array_push($price_ar,array_values($obj8)[4]);
+array_push($cost_arr,array_values($obj8)[3]);
+
+array_push($date4,array_keys($obj1)[$i]);
+
+}
+//print_r($date4);
+for($i=0;$i<50;$i=$i+7){
+//echo array_keys($obj1)[$i];
+
+array_push($obj10,array_keys($obj1)[$i]);
+
+}
+
+$ret1=[];
+$cost_arr1 = array_reverse($cost_arr);
+$ret1 = array_reverse($ret);
+$date5 = array_reverse($date4);
+$price_ar1 = array_reverse($price_ar);
+//print_r($ret1);
+$varsize = sizeof($date5);
+
+$date7=[];
+for($k=0;$k<$varsize;$k++){
+    $temp = substr($date5[$k],5,2);
+    $temp1 = substr($date5[$k],8,3);
+    $date7[$k] = $temp . '/' . $temp1;
+    
+    //$date7[$k] = substr($date5[$k],5,5);
+
+}
+$xml=simplexml_load_file("https://seekingalpha.com/api/sa/combined/".$var1.".xml") or die("Error: Cannot create object");
+//print_r($xml);
+
+$var15 = sizeof($xml->channel->item);
+$arrayMatch = [];
+for($i=0;$i<=$var15;$i++){
+
+	if(strpos((string)$xml->channel->item[$i]->link,"article")!== false){
+			$date1 = substr((string)$xml->channel->item[$i]->pubDate,0,25);
+			array_push($arrayMatch, array("Title"=>(string)$xml->channel->item[$i]->title,"Link"=>(string)$xml->channel->item[$i]->link,"Date"=>$date1));
+
+
+	}
+	if (sizeof($arrayMatch)>=5){
+		break;
+	}
+}
+
+$newsInfo = [];
+array_push($newsInfo,array("first"=>$arrayMatch[0]));
+array_push($newsInfo,array("second"=>$arrayMatch[1]));
+array_push($newsInfo,array("third"=>$arrayMatch[2]));
+array_push($newsInfo,array("four"=>$arrayMatch[3]));
+array_push($newsInfo,array("five"=>$arrayMatch[4]));
+$newsJson = json_encode($newsInfo);
+
+
+echo "<html><body><div class='container' style='height: 400px; width: 1000px'> </div> <br><br></body></html>";
+}}
+
+
+
+?>
+</div>
+</center>
+<script type="text/javascript">
+
+
+    var jArray = <?php echo json_encode($price_ar1 ); ?>;
+    var jArray2 = <?php echo json_encode($obj10 ); ?>;
+    var jArray3 = <?php echo json_encode($ret1 ); ?>;
+    var jArray4 = <?php echo json_encode($date7 ); ?>;
+    var jArray5 = <?php echo json_encode($cost_arr1 ); ?>;
+    var date3 = <?php echo json_encode($date ); ?>;
+    temp4 = date3.slice(5,7);
+    temp5 = date3.slice(8,11);
+    temp6 = date3.slice(0,4);
+    realDate = temp4 + '/' + temp5 + '/' + temp6;
+      result = jArray.map(parseFloat);
+      jArray7 = jArray5.map(parseFloat);
+      firstMin = Math.min.apply(null, jArray7)-5;
+      secondMin = Math.min.apply(null, result)-5;
+      firstMax = Math.max.apply(null, jArray7);
+      //document.write(firstMax);
+      secondMax = Math.max.apply(null, result);
+     
+     var myjsvar= <?php echo json_encode($var1); ?>
+     
+ </script>
+
+<script>
+function hello () {
+	
+	document.getElementById("name").value = localStorage.getItem("comment1");
+	//document.write(jArray7);
+	//document.write(result);
+	
+    
+	//document.getElementById("name").innerHTML = comment1;
+    new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0],
+            
+        },
+         title: {
+            text: 'Stock Price' + '(' +realDate+ ')'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+
+
+        xAxis: {
+        
+        rotation: 45,
+        tickInterval: 5,
+        categories: jArray4
+        
+    },
+        
+        
+        yAxis: [{
+           
+       
+       
+        
+        
+        title: {
+
+            text: 'Stock Price',
+            
+        },
+        tickInterval: 5,
+        min: firstMin,
+        max: firstMax
+
+        
+        
+    }, { // Secondary yAxis
+    	
+        
+        title: {
+
+            text: 'Volume',
+            
+        },
+        tickInterval: 80000000,
+        min: secondMin,
+        max: secondMax,
+        
+        opposite: true
+        
+    }],
+    
+        
+        
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 100,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    plotOptions: {
+    	series:{
+    		stacking: 'normal'
+    	}
+    },
+     plotOptions: {
+	            series : {
+	               stacking: 'normal'
+	            },
+	            area: {
+	                marker: {
+	                    radius: 1
+	                },
+	                lineWidth: 2,
+	                states: {
+	                    hover: {
+	                        lineWidth: 1
+	                    }
+	                },
+	                threshold: null
+	            }
+	        },
+
+        series: [{
+            type: 'area',
+            name: myjsvar,
+            color: '#ff8080',
+            
+            data: jArray7
+            
+            
+            
+        },
+        {
+            type: 'column',
+            color: '#fff',
+            name: myjsvar +' Volume',
+            data: result,
+            yAxis: 1
+            
+        }]
+    });
+    myFunction2();
+
+}
+
+function first(var4,myjsvar) {
+var xmlhttp = new XMLHttpRequest();
+var url = "https://www.alphavantage.co/query?function="+var4+"&symbol="+myjsvar+"&interval=daily&time_period=10&series_type=open&apikey=BVFQG1A5Y8XQTOQG";
+xmlhttp.onreadystatechange = function() {
+   //document.write(var4);
+    if (this.readyState == 4 && this.status == 200) {
+      
+        var arr = JSON.parse(this.responseText);
+        myFunction(arr);
+    }
+}
+
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+   //document.write(var4);
+function myFunction(arr){
+
+if(var4 == 'SMA') {
+      
+
+var6 =  arr["Technical Analysis: SMA"];
+ 
+ //document.write(var7);
+ resultj= [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["SMA"]);
+      resultj.push(each);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ for(q=0;q<resDate.length;q++){
+   temp2 = resDate[q].slice(5,7);
+   temp3 = resDate[q].slice(8,11);
+   resDate2[q]= temp2 + '-' + temp3;
+  
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0]
+            
+        },
+         title: {
+            text: 'Simple Moving Average (SMA)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'SMA',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 150,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: myjsvar,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+   
+   }
+   else if(var4 == 'EMA'){
+      
+      var6 = arr["Technical Analysis: EMA"];
+
+ resultj = [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["EMA"]);
+      resultj.push(each);
+     
+   }
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2 = [];
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse(); 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0]
+            
+        },
+         title: {
+            text: 'Exponential Moving Average (EMA)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'EMA',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 200,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+        xAxis: {
+        
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate1
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: myjsvar,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+
+
+   }
+   else if(var4 == 'STOCH'){
+      
+      var6 =  arr["Technical Analysis: STOCH"];
+ //var7 = var6["2017-10-17"];
+ 
+ resultj= [];
+ resultl = [];
+ resultl2 = [];
+   for(each in var6){
+      resultl.push(var6[each]["SlowK"]);
+      resultl2.push(var6[each]["SlowD"]);
+      resultj.push(each);
+     
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resStoch = resultl2.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ resSMA2 = resStoch.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0]
+            
+        },
+         title: {
+            text: 'Simple Moving Average (SMA)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+        	slowkmatype: 1,
+        	slowdmatype: 1,
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'SMA',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 150,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: myjsvar + ' SlowK',
+            color: '#ff8080',
+            
+            data: resSMA1
+          
+            
+        },
+        {
+            type: 'line',
+            name: myjsvar + ' SlowD',
+            color: '#0000ff',
+            
+            data: resSMA2
+          
+            
+        }]
+    });
+
+   }
+else if (var4 == 'ADX'){
+
+   var6 =  arr["Technical Analysis: ADX"];
+ 
+ resultj= [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["ADX"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0]
+            
+        },
+         title: {
+            text: 'Relative Strength Index'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'ADX',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 150,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: myjsvar,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+   
+   }
+
+   else if(var4 == 'RSI'){
+
+      var6 =  arr["Technical Analysis: RSI"];
+ var7 = var6["2017-10-17"];
+ //document.write(var7);
+ resultj= [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["RSI"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0]
+            
+        },
+         title: {
+            text: 'Relative Strength Index (RSI)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'RSI',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 150,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: myjsvar,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+   
+   }
+   else if(var4 == 'CCI'){
+var6 =  arr["Technical Analysis: CCI"];
+ var7 = var6["2017-10-17"];
+ //document.write(var7);
+ resultj= [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["CCI"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0]
+            
+        },
+         title: {
+            text: 'Commodity Channel Index (CCI)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'CCI',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 150,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: myjsvar,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+   
+
+   }
+   else if(var4 == 'BBANDS'){
+      
+      var6 =  arr["Technical Analysis: BBANDS"];
+ //var7 = var6["2017-10-17"];
+ 
+ resultj= [];
+ resultl = [];
+ resultl2 = [];
+resultl3=[];
+   for(each in var6){
+      resultl.push(var6[each]["Real Lower Band"]);
+      resultl2.push(var6[each]["Real Middle Band"]);
+      resultl3.push(var6[each]["Real Upper Band"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resStoch = resultl2.slice(0,120);
+ resSMA = resultl.slice(0,120);
+  resFinal = resultl3.slice(0,120);
+ 
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ resSMA2 = resStoch.map(parseFloat).reverse();
+ resSMA3 = resFinal.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0]
+            
+        },
+         title: {
+            text: 'Bollinger Bands  (BBANDS)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'SMA',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 150,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: myjsvar +' Real Lower Band',
+            color: '#ff8080',
+            
+            data: resSMA1
+          
+            
+        },
+        {
+            type: 'line',
+            name: myjsvar +' Real Middle Band',
+            color: '#0000ff',
+            
+            data: resSMA2
+          
+            
+        },{
+            type: 'line',
+            name: myjsvar +' Real Upper Band',
+            color: 'black',
+            
+            data: resSMA3
+          
+            
+        }]
+    });
+
+   }
+   else if(var4 == 'MACD'){
+      
+      var6 =  arr["Technical Analysis: MACD"];
+ //var7 = var6["2017-10-17"];
+ 
+ resultj= [];
+ resultl = [];
+ resultl2 = [];
+resultl3=[];
+   for(each in var6){
+      resultl.push(var6[each]["MACD_Hist"]);
+      resultl2.push(var6[each]["MACD"]);
+      resultl3.push(var6[each]["MACD_Signal"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resStoch = resultl2.slice(0,120);
+ resSMA = resultl.slice(0,120);
+  resFinal = resultl3.slice(0,120);
+ 
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ resSMA2 = resStoch.map(parseFloat).reverse();
+ resSMA3 = resFinal.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("container")[0]
+            
+        },
+         title: {
+            text: 'Moving Average Convergence/Divergence (MACD)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 1,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'MACD',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 150,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: myjsvar + ' MACD_Hist',
+            color: '#ff8080',
+            
+            data: resSMA1
+          
+            
+        },
+        {
+            type: 'line',
+            name: myjsvar + ' MACD',
+            color: '#0000ff',
+            
+            data: resSMA2
+          
+            
+        },{
+            type: 'line',
+            name: myjsvar +' MACD_Signal',
+            color: 'black',
+            
+            data: resSMA3
+          
+            
+        }]
+    });
+
+   }
+   }
+}
+function myFunction1() {
+	
+document.getElementById("replace").innerHTML = " <center>Click to Hide Stock Data <br> <a href='javascript:void(0)' id = 'two' onclick='myFunction2(this.id)'><img src= 'Gray_Arrow_Up.png' width='50px'></a></center>";
+
+var jsonData = <?php echo $newsJson ?>;
+
+html_text="<html><body><center><table border = '1px'><tr><td>";
+html_text+="<a href = "+jsonData[0].first["Link"]+"  >" + jsonData[0].first["Title"] + "</a>   " + jsonData[0].first["Date"] + "</td></tr>";
+
+html_text+="<tr><td><a href = "+jsonData[1].second["Link"]+"  >" + jsonData[1].second["Title"] + "</a>   " + jsonData[1].second["Date"] + "</td></tr>";
+html_text+="<tr><td><a href = "+jsonData[2].third["Link"]+"  >" + jsonData[2].third["Title"] + "</a>   " + jsonData[2].third["Date"] + "</td></tr>";
+html_text+="<tr><td><a href = "+jsonData[3].four["Link"]+"  >" + jsonData[3].four["Title"] + "</a>   " + jsonData[3].four["Date"] + "</td></tr>";
+html_text+="<tr><td><a href = "+jsonData[4].five["Link"]+"  >" + jsonData[4].five["Title"] + "</a>   " + jsonData[4].five["Date"] + "</td></tr></center></table></body></html>";
+document.getElementById("three").innerHTML = html_text;
+//return (html_text)
+
+
+//document.write(html_text);
+}
+function myFunction2(){
+		document.getElementById("replace").innerHTML = "<center>Click to Show Stock Data <br> <a href='javascript:void(0)' id = 'one' onclick='myFunction1(this.id)'><img src= 'Gray_Arrow_Down.png' width='50px'></a></center>";
+		document.getElementById("three").innerHTML = "";
+
+
+}
+
+
+
+    //document.getElementById("cform").reset();
+
+ 
+</script>
+<center>
+
+<div id = "replace">
+
+</div>
+<div id="three">
+</div>
+</center>
+</body>
+</html>
+
+
+
