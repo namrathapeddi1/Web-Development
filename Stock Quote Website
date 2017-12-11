@@ -1,0 +1,3063 @@
+Front End:
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+  <script src="http://code.highcharts.com/modules/exporting.js"></script>
+  <style type="text/css">
+
+  div.row1{
+    float:none; 
+    border:1px grey; 
+    overflow:hidden;
+    background-color: #F0F0F0;
+    padding:10px;
+    width:902px;
+    margin-left: 5px;
+    margin-top: 5px;
+
+  }
+  #order{
+
+  }
+  #sort{
+
+  }
+  #cont13{
+
+    background-color: #F0F0F0;
+  }
+#cont12{
+
+  background-color: #F0F0F0;
+}
+tr.space>td {
+  padding-bottom: 1em;
+}
+.font{
+  font-size: 12px;
+  font-weight: bold;
+}
+
+ .animate-hide {
+  -webkit-transition:all cubic-bezier(0.250, 0.460) 1s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+ 
+  line-height:20px;
+  opacity:1;
+  padding:10px;
+  border:1px solid black;
+  background:white;
+  position: absolute;
+  left: 0%;
+}
+body{
+  background-color:black;
+}
+.animate-hide.ng-hide {
+    
+  left: 30%;
+  right: 30%;
+  opacity:0;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+
+ .animate-hide1 {
+  -webkit-transition:all cubic-bezier(0.250, 0.460) 2s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+ 
+  line-height:20px;
+  opacity:1;
+  padding:10px;
+  border:1px solid black;
+  background:white;
+  position: absolute;
+  left: 0%;
+}
+
+.animate-hide1.ng-hide {
+    
+  left: 30%;
+  opacity:0;
+  padding: 10px;
+  position: absolute;
+}
+ 
+ 
+html {
+    height: 100%;
+}
+
+
+#searchResult li:hover{
+  cursor:pointer;
+  
+}
+
+
+.open>.dropdown-menu {
+    
+    margin-left: 4%;
+    width: 97%;
+}
+
+#id1{
+          padding: 1px;
+    text-align: center;
+    margin: 1%;
+    display: inline-block;
+    float: left;
+    background-color: #004272;
+    color: white;
+    font-size: 12px;
+    margin-left: 1%;
+    margin-top: -11px;
+    position: absolute;
+    height: 39px;
+    width: 140px;
+  
+}
+#id2{
+  
+  text-align: center;
+    margin: 10%;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    margin-top: -12px;
+    margin-left: 40%;
+    position: absolute;
+    height: 40px;
+    width: 140px;
+  
+}
+
+.btn.active{
+    background-color:  #3359cc !important;
+    color: white !important;
+}
+
+#cont{
+  width: 72%;
+  height: 103px;
+  padding: 5%;
+  margin: 10%;
+  background-color: white;
+  display: inline-block;
+  border: solid 1px black;
+  border-width: 1px;
+  padding: 5px;
+  margin-top: 2%;
+}
+#cont1{
+  width: 72%;
+    height: 600px;
+    padding: 1%;
+    margin: 10%;
+    background-color: white;
+    display: inline-block;
+    border: solid 1px black;
+    border-width: 1px;
+    margin-top: -7%;
+  
+}
+#cont11{
+  width: 72%;
+    height: 300px;
+    padding: 0.5%;
+    margin: 10%;
+    background-color: white;
+    display: inline-block;
+    border: solid 1px black;
+    border-width: 1px;
+    margin-top: -7%;
+  
+}
+
+.yellow{
+
+  color: yellow;
+}
+.blueCell{
+    color:red;
+}
+.greenCell{
+    color:green;
+}
+
+.btn btn-default{
+
+  background-color: white;
+  border-style: none;
+}
+#id3{
+  display: inline-block;
+  float: left;
+  font-weight: bold;
+  font-size: 12px;
+}
+tr{
+
+  padding: 50px;
+}
+#id4{
+  display: inline-block;
+  float:left;
+  height: 30px;
+  width: 35%;
+}
+#id5{
+  text-align: center;
+  position: relative;
+  margin-bottom: 2%;
+  font-weight:bold;
+  font-size: 15px;
+  text-align:center;
+}
+.btn-xl {
+    padding: 4px 20px;
+    border-radius: 6px;
+    width: 11%;
+    height: 13%;
+}
+#input1{
+
+}
+#wid{
+
+  width: 106%;
+
+}
+td, th {
+    padding: 5px;
+}
+#name1{
+  margin-left: 10%;
+}
+.progress{
+
+  margin-top: 20%;
+
+}
+.xsdiv{
+  display:none;
+}
+#show{
+  padding:20px;
+  text-align: center;
+}
+
+
+input.ng-touched.ng-invalid {
+   border-color: red;
+}
+@media (max-width: 768px){
+  #cont{
+height: 170px;
+    width: 95%;
+    margin-top: 6%;
+    margin-left: 10px;
+}
+
+input {
+    line-height: normal;
+    margin-top: 10px;
+}
+#id1 {
+    
+    margin-left: 2%;
+    margin-top: 6px;
+    height: 33px;
+    width: 104px;
+}
+.chartxs {
+    width: 148px;
+    margin-left: -8px;
+    margin-right: -1px;
+}
+#input1 {
+    width: 300px;
+    margin-top: 11px;
+    margin-left: 9px;
+}
+#id2 {
+    text-align: center;
+    margin: 10%;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    margin-top: 7px;
+    margin-left: 35%;
+    position: absolute;
+    height: 31px;
+    width: 99px;
+}
+#cont11 {
+    width: 94%;
+    height: 300px;
+    padding: 0.5%;
+    margin: 10%;
+    background-color: white;
+    display: inline-block;
+    border: solid 1px black;
+    border-width: 1px;
+    margin-top: -10%;
+    margin-left: 10px;
+}
+#order{
+  margin:10px;
+}
+#sort{
+  margin:10px;
+}
+#cont1 {
+    width: 95%;
+    margin-left: 10px;
+}
+.lgdiv{
+  display: none;
+}
+.xsdiv{
+  display: block;
+}
+.titleonly {
+    margin-top: 10px;
+    margin-left: -13px;
+    overflow: visible;
+    white-space: initial;
+    display: inline-block;
+    
+}
+.table1 {
+    background-color: transparent;
+    width: 350px;
+}
+.cont3{
+width:350px;
+margin-left: 8px;
+
+
+}
+}
+
+  </style>
+  
+  
+</head>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+  
+
+
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript">
+FB.init({
+appId : '1950967881809674',
+//access-token: '1950967881809674|EgUqaU5iXQIMQ5ptIDPjs-EMzDo',
+cookie: true
+});
+</script>
+
+<body ng-app='myapp'>
+      <div ng-controller="fetchCtrl" data-ng-init="init()">
+
+<div class="container" id="cont">
+
+<h2 id = "id5">Stock Market Search</h2>
+    <p id = "id3" class="col-lg-4 col-xs-12"> Enter Stock Ticker Symbol:* </p>
+    
+    <form name = "myForm"> 
+    <div class="dropdown col-lg-3">
+      
+        
+    <input type='text' id="input1" name="searchText" ng-model="searchText" ng-keyup='fetchUsers()' value= "searchText" class="dropdown-toggle" data-toggle="dropdown" id="wid" placeholder="e.g. AAPL" required>
+    
+    <span ng-show="myForm.searchText.$touched && myForm.searchText.$invalid"><div id="invalid">Please enter Stock Ticker symbol.</div></span>
+  
+ <ul id='searchResult' class="dropdown-menu dropdown-menu-center">
+   <li ng-click='setValue($index)' ng-repeat="result in searchResult track by $index" ng-if="result.Symbol" >{{ result.Symbol + "-" + result.Name + '(' + result.Exchange + ')' }}</li>
+  </ul>
+
+  </div>
+  
+  <div class="col-lg-5 col-xs-12">
+<button type="button" class="btn btn-default btn-xl col-lg-1" id="id1" ng-click="register1()" ng-disabled="myForm.searchText.$invalid && myForm.searchText.$touched || myForm.searchText.$untouched">
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Get Quote
+</button>
+<button type="button" ng-click="clear()" class="btn btn-default btn-xl col-lg-1" id = "id2">
+  <span class="glyphicon glyphicon-refresh"  aria-hidden="true" ></span> Clear
+</button>
+ </form>
+ </div>
+</div>
+ <p id="search1"></p>
+ <div>
+   <div class="container animate-hide" id = "cont1" ng-hide="myValue" ng-show="four">
+    <div class = "row">
+      
+    </div>
+    <div id="xs">
+      <div class="col-xs-12 col-lg-12">
+        <div class="col-xs-3 col-lg-3">
+          <form name="myForm2">
+      <button type="button" data-ng-click="fav()">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" ></span>
+
+       </button>
+     </form>
+        </div>
+        <div class="col-xs-9 col-lg-9">
+          Stock Details  
+        </div>
+      </div>
+      <div class="col-lg-12 lgdiv">
+        <div class="btn-group" role="group">
+        <div class="col-lg-4">
+          <button type="button" id="stockbut" class="btn btn-default" data-ng-click="register1()" class="current"> 
+      <span class="glyphicon glyphicon-dashboard" aria-hidden="true" ></span>
+      Current Stock</button>
+        </div>
+        <div class="col-lg-4">
+          <button type="button" id="hisbut" class="btn btn-default" data-ng-click="history()"> 
+        <span class="glyphicon glyphicon-stats" aria-hidden="true" ></span>Historical Charts
+
+      </button>
+        </div>
+        <div class="col-lg-4">
+          <button type="button" id="newsbut" class="btn btn-default" data-ng-click="newsfeed()"> 
+          <span class="glyphicon glyphicon-link" aria-hidden="true" ></span>
+
+      News Feed </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xs-12 xsdiv">
+      <div class="btn-group" role="group">
+        <div class="col-xs-4">
+          <button type="button" id="stockbut" class="btn btn-default" data-ng-click="register1()" class="current"> 
+      <span class="glyphicon glyphicon-dashboard" aria-hidden="true" ></span>
+      Stock</button>
+        </div>
+        <div class="col-xs-4">
+          <button type="button" id="hisbut" class="btn btn-default" data-ng-click="history()"> 
+        <span class="glyphicon glyphicon-stats" aria-hidden="true" ></span> Charts
+
+      </button>
+        </div>
+        <div class="col-xs-4">
+          <button type="button" id="newsbut" class="btn btn-default" data-ng-click="newsfeed()"> 
+          <span class="glyphicon glyphicon-link" aria-hidden="true" ></span>
+
+      News</button>
+        </div>
+      </div>
+    </div>
+    <div class = "row " ng-show="one">
+
+    
+      <div>
+        
+        <div class="col-lg-6 col-xs-12 progress" ng-show="isProgessBarVisible" >
+  <div class="progress-bar progress-bar-striped active" role="progressbar"  style="width:30%">
+   <object width="50%" height="50%"></object>
+  </div>
+      </div>
+    <div class="col-lg-6 col-xs-12" id="dontshow" ng-show="isProgessBarVisible1">
+   <table border = "1" width="400px" height="400px" class="table1">
+    <th> Stock Details  
+<button type="button" id = "yo" ng-click="lese1()"> <img src="facebook.png" width="20px" ></button>
+<div id="title12" ng-click="favorite()">
+     
+</div>
+
+
+    </th>
+    <tr>
+      <td> 
+        Stock Ticker Symbol
+      </td>
+      <td>
+         {{searchText}} 
+       </td>
+     </tr>
+     <tr>
+      <td>
+        Last Price
+      </td>
+      <td>
+        {{searchResult1}}
+      </td>
+     </tr>
+     <tr>
+      <td>
+        Change (Change Percent)
+      </td>
+      <td id="willchange">
+        {{searchResult2 + '(' + change_Percent + '%)'}}
+      </td>
+     </tr>
+     <tr>
+      <td>
+        Open
+      </td>
+      <td>
+        {{open}}
+      </td>
+     </tr>
+     <tr>
+      <td>
+        Day's Range
+      </td>
+      <td>
+        {{low}} - {{high}} 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Volume
+      </td>
+      <td>
+          {{volume}}
+      </td>
+    </tr>
+
+   </table>
+ </div>
+</div>
+<div>
+  <div id="show" ng-show="show" class="col-lg-6">
+    Error!!!
+  </div>
+
+    <div class="col-lg-6 col-xs-12 progress" ng-show="chartprog">
+  <div class="progress-bar progress-bar-striped active" role="progressbar"  style="width:30%">
+   <object width="40%" height="50%"></object>
+  </div>
+      </div>
+
+  
+  <div class="col-lg-6 col-xs-12 chartxs" ng-show="chartprogsee">
+    <div class="titleonly">
+   <table class="col-xs-12" BORDER= "1">
+    <tr>
+      <td>
+      <a href = "" id = "price" data-ng-click="price()">Price</a>
+    </td>
+    <td>
+      <a href = "" id = "SMA" data-ng-click="first('SMA')">SMA</a>
+      
+    </td>
+    <td>
+      <a href = "" id = "EMA" data-ng-click="first('EMA')">EMA</a>
+    </td>
+    <td>
+      <a href = "" id = "STOCH" data-ng-click="first('STOCH')">STOCH</a>
+    </td>
+    <td>
+      <a href = "" id = "RSI" data-ng-click="first('RSI')">RSI</a>
+    </td>
+    <td>
+      <a href = "" id = "ADX" data-ng-click="first('ADX')">ADX</a>
+    </td>
+    <td>
+      <a href = "" id = "CCI" data-ng-click="first('CCI')">CCI</a>
+    </td>
+    <td>
+      <a href = "" id = "BBANDS" data-ng-click="first('BBANDS')">BBANDS</a>
+    </td>
+    <td>
+      <a href = "" id = "MACD" data-ng-click="first('MACD')">MACD</a>
+    </td>
+    </tr>
+   </table>
+ </div>
+
+   <div class="cont3"></div>
+ 
+    </div>
+</div>
+    </div>
+    <div class= "row">
+      <div ng-show="two">
+      
+      <div class="row1">
+        
+         
+          <br>
+          <div style="font-size: 15px">
+            <a href="{{html_text1}}" target="_blank">{{html_text2}}</a>          
+          </div>
+          <div class="font"><b>
+            {{html_text3}}</b>
+          </div>
+          <div class="font"><b>
+            {{html_text4}}</b>
+          </div>
+          
+        </div>
+        <br>
+        <div class="row1">          
+          <div>
+            <a href="{{html_text5}}" target="_blank">{{html_text6}}</a>
+          </div>
+          <div class="font"><b>
+            {{html_text7}}</b>
+          </div>
+          <div class="font"><b>
+            {{html_text8}}</b>
+          </div>
+        </div>
+        <br>
+        <div class="row1">
+          
+          <div>
+
+            <a href="{{html_text9}}" target="_blank">{{html_text10}}</a>
+          </div>
+          <div class="font"><b>
+            {{html_text11}}</b>
+          </div>
+          <div class="font"><b>
+            {{html_text12}}</b>
+          </div>
+        </div>
+        <br>
+        <div class="row1">          
+          <div>
+            <a href="{{html_text13}}" target="_blank">{{html_text14}}</a>
+          </div>
+          <div class="font"><b>
+            {{html_text15}}</b>
+          </div>
+          <div class="font"><b>
+            {{html_text16}}
+          </b>
+          </div>
+        </div>
+        <br>
+        <div class="row1">
+          <div>
+            <a href="{{html_text17}}" target="_blank">{{html_text18}}</a>
+          </div>
+          <div class="font"><b>
+            {{html_text19}}</b>
+          </div>
+          <div class="font"><b>
+            {{html_text20}}
+          </div></b>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="progress" ng-show="chartprog1">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:80%">
+   <object width="80%" height="80%"></object>
+  </div>
+      </div>
+    <div class="cont4" ng-show="three">
+    </div>
+  </div>
+    </div>
+    <p> {{searchResult3}}</p>
+    <img id="chart" style="width: 600px;" />
+    <div id=""></div>
+    
+   </div>
+   <div ng-show="five" id="cont11" class="animate-hide1" ng-hide="myValue1">
+     <table width="100%">
+      <thead>
+        <tr class = "space" id="cont12">
+        <td><b>Favorite List </b></td>
+        <td> <button type="button" id="buttonid" ng-click="fav1()" style="float: right">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" ></span>
+
+        </button></td></tr>
+      
+        <tr class="space">
+          <div class="col-lg-6 col-xs-12" id="sort"><td><b>
+            Sort By</b>
+          </td>
+          <td>
+
+            <select ng-model="temp1" ng-change="change1(temp1)" value="default">
+            <option ng-option value="" >Default</option>
+            <option selected="selected" value="symbol" >Symbol</option>
+            <option value="Price">Price</option>
+            <option value="Change">Change</option>
+            <option value="change_percent">Change Percent</option>
+            <option value="volume">Volume</option>
+            </select>
+              </td>
+              </div>
+          
+        
+           <div class="col-lg-6 col-xs-12" id="order"><td><b>
+            Order</b>
+          </td>
+          <td>
+            <select id="ascid" ng-model="temp" ng-change="changedValue(temp)">
+            <option ng-option value="asc" selected>Ascending</option>
+            <option value="des">Descending</option>
+            </select>
+         </td> </div>
+        </tr>
+      <tr class="space" id="cont13">
+        <td><b>
+          Symbol</b>
+        </td>
+        <td><b>
+          Stock Price</b>
+        </td>
+        <td><b>
+          Change</b>
+        </td>
+        <td><b>
+          Volume</b>
+        </td>
+
+      </tr>
+    </thead>
+    <tbody id="table1">
+    </tbody>
+      
+     </table>
+   </div>
+   </div>
+ </div>
+  
+  </div>
+ 
+
+<script>
+
+function delFav(vara){
+
+  var scope = angular.element($("div[ng-controller='fetchCtrl']")).scope();
+    scope.$apply(function(){
+      
+      
+        console.log(scope.list2);
+        var index = scope.list2.indexOf(vara.id);
+        scope.list2.splice(index, 1);
+        console.log(scope.list2);
+        var row = document.getElementById(vara.id);
+    var table = row.parentNode;
+    while ( table && table.tagName != 'TABLE' )
+        table = table.parentNode;
+    if ( !table )
+        return;
+    table.deleteRow(row.rowIndex);
+
+    //localStorage.removeItem(vara.id);
+    })
+
+//console.log(vara.id);
+
+
+
+}
+
+var fetch = angular.module('myapp', ["ngAnimate"]);
+
+fetch.controller('fetchCtrl', ['$scope', '$http','$compile', function ($scope, $http,$compile) {
+  $("#stockbut").addClass('active')
+    $("#hisbut").removeClass('active')
+    $("#newsbut").removeClass('active');
+  $("#ascid").prop("disabled",true);
+  $scope.click1=true;
+  $scope.list2=[];
+  $("#buttonid").prop("disabled",true);
+  $scope.myValue= true;
+  $scope.myValue1=false;
+  $scope.show=false;
+  $scope.fav1 =function(){
+
+    $scope.four=true;
+    $scope.five=false;
+  }
+
+  $scope.remove1=function(varb){
+
+    //$scope.click1=true;
+    //alert(varb);
+    var index = $scope.list2.indexOf(varb);
+        $scope.list2.splice(index, 1);
+        console.log($scope.list2);
+        var row = document.getElementById(varb);
+    var table = row.parentNode;
+    while ( table && table.tagName != 'TABLE' )
+        table = table.parentNode;
+    if ( !table )
+        return;
+    table.deleteRow(row.rowIndex);
+    dummy1= "";
+    dummy1+="<button class='glyphicon glyphicon-star-empty' ng-show=true></button>";
+    var temp = $compile(dummy1)($scope);
+    $("#title12").empty().append(dummy1);
+
+  }
+  $scope.clear = function(){
+
+  //document.getElementById("cont1").innerHTML="";
+  //$("#cont1").empty();
+    //document.getElementById("searchText").innerHTML="";
+     $scope.five=true;
+    $scope.four=false;
+    $("#buttonid").prop("disabled",true);
+   //$("#cont1").empty();
+   document.getElementById("input1").value="";
+  }
+  $scope.register2 = function(){
+    $scope.four=true;
+    $scope.five=false;
+  }
+  
+ 
+ // Fetch data
+ $scope.fetchUsers = function(){
+  document.getElementById("searchResult").style.visibility="visible";
+   //$http({method:'GET', url:'index.php', params:{searchText:$scope.searchText,func:'func3'}}).then(function successCallback(response) {
+    //$http.get("index.php", {params: { parameters: {searchText: $scope.searchText, func: 'func3'}}}).then(function (response){
+console.log('index.php?searchText='+$scope.searchText+',func=func3');
+  $http.get(
+   
+    'index.php?searchText='+$scope.searchText+'&func=func3',
+   //method: 'GET'
+
+  // params: {searchText:$scope.searchText,func:'func3'}
+  ).then(function successCallback(response) {
+    
+   $scope.searchResult = response.data;
+  });
+ }
+ $scope.init = function(){
+
+$scope.four=false;
+$scope.five=true;
+
+ }
+
+ $scope.change1 = function(temp1){
+  $scope.temp1 = temp1;
+  if($scope.temp1!="Price" && $scope.temp1!="Change" && $scope.temp1!="symbol" && $scope.temp1!="change_percent" && $scope.temp1!="volume"){
+    //if (!($scope.temp1 in [,"Price","Change","symbol","change_percent","volume"])){
+    $("#ascid").prop("disabled",true);
+
+  }
+  else{
+    $("#ascid").prop("disabled",false);
+    $scope.changedValue($scope.temp);
+  }
+  
+  
+ }
+
+ $scope.changedValue = function(temp){
+  $("#ascid").prop("disabled",false);
+
+  //alert($scope.temp1);
+  $scope.temp = temp;
+  if(temp=="asc"){
+    if($scope.temp1=="symbol"){
+
+    //alert("yes");
+    list3 = [];
+    list3 = $scope.list2.sort();
+    console.log(list3);
+    var dummy= "";
+  for(item in list3){
+  
+    var a = JSON.parse(localStorage.getItem(list3[item]));
+
+  //console.log(a);
+  var b = a[0];
+
+  if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+  var temp = $compile(dummy)($scope);
+}
+$("#table1").empty().append(temp);
+  }
+  if($scope.temp1=="Price"){
+    list5=[]
+    list4=[];
+    dummy="";
+    for(item in $scope.list2){
+    
+    var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+    list4 = [a[0],a[1],a[2],a[3],a[4]];
+    list5.push(a[1]);
+    list5=list5.sort();
+    list5=list5.reverse();
+    
+    //list4 = a[1].sort();
+    localStorage.setItem(a[1],JSON.stringify(list4));
+  }
+    for(item in list5){
+    var a =  JSON.parse(localStorage.getItem(list5[item]));
+    var b = a[0];
+    
+//if(c[2]<0){
+  if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+
+//}
+    var temp = $compile(dummy)($scope);
+  }
+  $("#table1").empty().append(temp);
+
+  }
+
+  if($scope.temp1=="Change"){
+    list5=[]
+    list4=[];
+    dummy="";
+    for(item in $scope.list2){
+    
+    var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+    list4 = [a[0],a[1],a[2],a[3],a[4]];
+    list5.push(a[2]);
+    list5=list5.sort();
+    if(a[2]>0){
+      list5=list5.reverse();
+    }
+    //list5=list5.reverse();
+    
+    //list4 = a[1].sort();
+    localStorage.setItem(a[2],JSON.stringify(list4));
+  }
+    for(item in list5){
+    var a =  JSON.parse(localStorage.getItem(list5[item]));
+    var b = a[0];
+    if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+    var temp = $compile(dummy)($scope);
+  }
+  $("#table1").empty().append(temp);
+
+
+  }
+
+  if($scope.temp1=="change_percent"){
+    list5=[]
+    list4=[];
+    dummy="";
+    for(item in $scope.list2){
+    
+    var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+    list4 = [a[0],a[1],a[2],a[3],a[4]];
+    list5.push(a[3]);
+    list5=list5.sort();
+    if(a[3]<0){
+    list5=list5.reverse();
+  }
+    //list4 = a[1].sort();
+    localStorage.setItem(a[3],JSON.stringify(list4));
+  }
+    for(item in list5){
+    var a =  JSON.parse(localStorage.getItem(list5[item]));
+    var b = a[0];
+    if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+    var temp = $compile(dummy)($scope);
+  }
+  $("#table1").empty().append(temp);
+
+
+  }
+  if($scope.temp1=="volume"){
+    list5=[]
+    list4=[];
+    dummy="";
+    for(item in $scope.list2){
+    
+    var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+    list4 = [a[0],a[1],a[2],a[3],a[4]];
+    list5.push(a[4]);
+    list5=list5.sort();
+    //list5=list5.reverse();
+    //list4 = a[1].sort();
+    localStorage.setItem(a[4],JSON.stringify(list4));
+  }
+    for(item in list5){
+    var a =  JSON.parse(localStorage.getItem(list5[item]));
+    var b = a[0];
+    if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+    var temp = $compile(dummy)($scope);
+  }
+  $("#table1").empty().append(temp);
+
+
+  }
+}
+
+  if(temp=="des"){
+    if($scope.temp1=="symbol"){
+    list3 = [];
+
+    list3 = $scope.list2.sort();
+    list3 = list3.reverse();
+    console.log(list3);
+    var dummy= "";
+  for(item in list3){
+  
+    var a = JSON.parse(localStorage.getItem(list3[item]));
+
+  //console.log(a);
+  var b = a[0];
+
+  if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+  var temp = $compile(dummy)($scope);
+}
+$("#table1").empty().append(temp);
+
+
+  }
+if($scope.temp1=="Price"){
+    list5=[]
+    list4=[];
+    dummy="";
+    for(item in $scope.list2){
+    
+    var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+    list4 = [a[0],a[1],a[2],a[3],a[4]];
+    list5.push(a[1]);
+    list5=list5.sort();
+    //list5=list5.reverse();
+    //list4 = a[1].sort();
+    localStorage.setItem(a[1],JSON.stringify(list4));
+  }
+    for(item in list5){
+    var a =  JSON.parse(localStorage.getItem(list5[item]));
+    var b = a[0];
+    if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+    var temp = $compile(dummy)($scope);
+  }
+  $("#table1").empty().append(temp);
+
+
+}
+if($scope.temp1=="Change"){
+    list5=[]
+    list4=[];
+    dummy="";
+    for(item in $scope.list2){
+    
+    var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+    list4 = [a[0],a[1],a[2],a[3],a[4]];
+    list5.push(a[2]);
+    list5=list5.sort();
+    //list5=list5.reverse();
+    if(a[2]<0){
+    list5=list5.reverse();
+  }
+    //list4 = a[1].sort();
+    localStorage.setItem(a[2],JSON.stringify(list4));
+  }
+    for(item in list5){
+    var a =  JSON.parse(localStorage.getItem(list5[item]));
+    var b = a[0];
+   if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+    var temp = $compile(dummy)($scope);
+  }
+  $("#table1").empty().append(temp);
+
+
+}
+if($scope.temp1=="change_percent"){
+    list5=[]
+    list4=[];
+    dummy="";
+    for(item in $scope.list2){
+    
+    var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+    list4 = [a[0],a[1],a[2],a[3],a[4]];
+    list5.push(a[3]);
+    list5=list5.sort();
+    if(a[3]>=0){
+    list5=list5.reverse();
+  }
+    //list4 = a[1].sort();
+    localStorage.setItem(a[3],JSON.stringify(list4));
+  }
+    for(item in list5){
+    var a =  JSON.parse(localStorage.getItem(list5[item]));
+    var b = a[0];
+    if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+    var temp = $compile(dummy)($scope);
+  }
+  $("#table1").empty().append(temp);
+
+
+}
+if($scope.temp1=="volume"){
+    list5=[]
+    list4=[];
+    dummy="";
+    for(item in $scope.list2){
+    
+    var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+    list4 = [a[0],a[1],a[2],a[3],a[4]];
+    list5.push(a[4]);
+    list5=list5.sort();
+    list5=list5.reverse();
+    //list4 = a[1].sort();
+    localStorage.setItem(a[4],JSON.stringify(list4));
+  }
+    for(item in list5){
+    var a =  JSON.parse(localStorage.getItem(list5[item]));
+    var b = a[0];
+    if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+    var temp = $compile(dummy)($scope);
+  }
+  $("#table1").empty().append(temp);
+
+
+}
+
+
+
+}
+
+ }
+ 
+
+ // Set value to search box
+ 
+ $scope.setValue = function(index){
+  $scope.searchText = $scope.searchResult[index].Symbol;
+  $scope.searchResult = {};
+ }
+  $scope.register = function(){
+
+  }
+  $scope.history = function(){
+
+    //document.getElementById("hisbut").addClass('active');
+    //document.getElementById("stockbut").removeClass('active');
+    //document.getElementById("newsbut").removeClass('active');
+    $("#hisbut").addClass('active')
+    $("#stockbut").removeClass('active')
+    $("#newsbut").removeClass('active');
+    $scope.one=false;
+    $scope.two=false;
+    $scope.chartprog1=true;
+    $scope.three=false;
+
+    $http.get(
+   
+    'index.php?searchText1='+$scope.searchText+'&func=func4',
+   //method: 'GET'
+
+  // params: {searchText:$scope.searchText,func:'func3'}
+  ).then(function successCallback(response) {
+    if(typeof response.data != 'object'){
+      $scope.show=true;
+      $scope.three=false;
+      $scope.chartprog1=false;
+    }
+    if(Object.keys(response.data).length==0){
+      $scope.show=true;
+      $scope.three=false;
+      $scope.chartprog1=false;
+    }
+    else{
+    $scope.chartprog1=false;
+    $scope.three=true;
+
+    var a = response.data['Time Series (Daily)'];
+    var dates = Object.keys(a);
+    //$scope.searchResult3 = dates;
+    
+    dates1 = [];
+    for(each in a){
+
+      //$scope.searchResult3 = a[each]['4. close'];
+      dates1.push(a[each]['4. close']);
+      dates2.push(a[each]['5. volume']);
+      
+
+    }
+
+    resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+    for(q=0;q<dates.length;q++){
+   temp2 = dates[q].slice(5,7);
+   temp3 = dates[q].slice(8,11);
+   resDate2[q]= temp2 + '/' + temp3;
+  
+ }
+  resDate1 = dates.reverse();
+  //resDate1 = resDate2.map(parseFloat);
+ resSMA1 = dates1.map(parseFloat).reverse();
+ //resVolume1 = dates2.map(parseFloat);
+
+ //var x = new Array(dates.length);
+ //for (var j = 0; j < dates.length; j++) {
+  //x[j] = new Array(2);
+//}
+x=[];
+ for(i=0;i<resDate1.length;i++){
+  timestamp = Date.parse(resDate1[i]);
+  //dates[i] = String(dates[i]);
+  //x[i][0] = dates[i];
+
+  //x[i][1] = resSMA1[i];
+  x.push([timestamp, resSMA1[i]]);
+  //console.log(x[i][0],x[i][1]);
+ }
+ console.log(resDate1);
+
+
+      new Highcharts.StockChart({
+       
+ 
+        
+      rangeSelector: {  
+
+      allButtonsEnabled: true,
+      selected: 0,
+      
+      buttons: [{
+        type: 'week',
+        count: 1,
+        text: '1w'
+      
+      },
+      
+      {
+        type: 'month',
+        count: 1,
+        text: '1m',
+        
+      }, {
+        type: 'month',
+        count: 3,
+        text: '3m'
+      }, {
+        type: 'month',
+        count: 6,
+        text: '6m'
+      }, {
+        type: 'ytd',
+        text: 'YTD'
+      }, {
+        type: 'year',
+        count: 1,
+        text: '1y'
+      }, {
+        type: 'all',
+        text: 'All'
+      }]
+},
+
+        title: {
+            text: $scope.searchText+ ' Stock Price'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+
+        series: [{
+            name: 'AAPL',
+            type: 'area',
+            data: x,
+            tooltip: {
+                valueDecimals: 2
+            },
+            fillColor: {
+                linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 0
+                },
+                stops: [
+                    [0, Highcharts.getOptions().colors[0]],
+                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+            }
+        }],
+        chart: {
+            renderTo: document.getElementsByClassName("cont4")[0]
+            
+            
+        }
+      
+  });}
+      //$('.cont4').highcharts().destroy();
+
+  });
+
+}
+/*
+$(".but1 button").click(function(){
+  $("button").removeClass("active");
+  $(this).addClass("active");
+});
+
+$('.btn-group button').on('click', function(){
+    $(this).siblings().removeClass('active')
+    $(this).addClass('active');
+})
+*/
+$scope.fav = function(){
+
+  $scope.five=true;
+  $scope.four=false;
+  $("#buttonid").prop("disabled",false);
+  //$scope.myValue=true;
+}
+
+
+
+
+
+
+$scope.favorite = function(){
+  //alert("Entered");
+  /*
+  if($scope.click1===true){
+  $scope.click1=false;
+  //$scope.click2=true;
+}
+  if($scope.click1===false){
+    $scope.click1=true;
+  }
+*/
+  $("buttonid").prop("disabled",false);
+  list1=[];
+  var list1 = [$scope.searchText,$scope.searchResult1,$scope.searchResult2,$scope.change_Percent,$scope.volume];
+  var key= $scope.searchText;
+  localStorage.setItem(key, JSON.stringify(list1));
+
+   if($scope.list2.indexOf(key) === -1){
+    dummy1= "";
+    dummy1+="<button class='glyphicon glyphicon-star yellow' ng-show=true></button>";
+    var temp = $compile(dummy1)($scope);
+    $("#title12").empty().append(dummy1);
+
+    //$scope.click1=false;
+  $scope.list2.push(key);
+  console.log($scope.list2);
+  var dummy= "";
+  for(item in $scope.list2){
+  
+     
+  
+  var a = JSON.parse(localStorage.getItem($scope.list2[item]));
+
+  //console.log(a);
+  var b = a[0];
+if(a[2]>=0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:green'>"+a[2]+ "("+a[3]+ ")<img src='Green_Arrow_Up.png'  width='10px'> </td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+if(a[2]<0){
+  dummy+="<tr id = "+a[0]+"><td> <a href='' ng-click='register1()'>"+a[0]+"</a></td><td>"+a[1]+"</td><td style='color:red'>"+a[2]+ "("+a[3]+ ")<img src='Red_Arrow_Down.png'  width='10px'></td><td>"+a[4]+ "<td><button onclick='delFav("+b+")'><span class='glyphicon glyphicon-trash' aria-hidden='true' ></span></button></td></tr>";
+
+}
+
+  var temp = $compile(dummy)($scope);
+  
+}
+$("#table1").empty().append(temp);
+}
+else{
+$scope.remove1(key);
+
+}
+
+}
+
+
+  $scope.register1 = function(){
+    $("#stockbut").addClass('active')
+    $("#hisbut").removeClass('active')
+    $("#newsbut").removeClass('active');
+    $scope.isProgessBarVisible=true;
+    $scope.isProgessBarVisible1=false;
+    $scope.chartprog=true;
+    $scope.chartprogsee=false;
+    $scope.full=false;
+    //$scope.myValue=false;
+    $scope.four=true;
+    $scope.one=true;
+    $scope.two=false;
+    $scope.three=false;
+    $scope.five=false;
+    
+    if($scope.list2.indexOf($scope.searchText) === -1){
+    dummy1= "";
+    dummy1+="<button class='glyphicon glyphicon-star-empty' ng-show=true></button>";
+    var temp = $compile(dummy1)($scope);
+    $("#title12").empty().append(temp);
+  }
+
+    //$('#cont4').highcharts().destroy();
+    //document.getElementById("cont4").highcharts().destroy();
+
+  //document.getElementById("searchResult").style.visibility="visible";
+ $http.get(
+   
+    'index.php?table1='+$scope.searchText+'&func=func1',
+   //method: 'GET'
+
+  // params: {searchText:$scope.searchText,func:'func3'}
+  ).then(function successCallback(response) {
+    if(typeof response.data != 'object'){
+      $scope.isProgessBarVisible=false;
+      $scope.isProgessBarVisible1=false;
+      $scope.show=true;
+
+    }
+
+    if(Object.keys(response.data).length==0){
+      $scope.isProgessBarVisible=false;
+      $scope.isProgessBarVisible1=false;
+      $scope.show=true;
+    }
+
+    else{
+
+    $scope.isProgessBarVisible=false;
+    $scope.isProgessBarVisible1=true;
+    $scope.full=true;
+    var a = response.data['Time Series (Daily)'];
+    var b = Object.keys(a)[0];
+    var c = Object.keys(a)[1];
+    var change = a[b]['4. close'] - a[c]['4. close'];
+    var change_percent = Math.round(((change/a[b]['4. close'])*100)*100)/100;
+    var open = a[b]['1. open'];
+    var low = Math.round((a[b]['3. low'])*100)/100;
+    var high = Math.round((a [b]['2. high'])*100)/100;
+    var volume = Math.round((a[b]['5. volume'])*100)/100;
+    //var b = a['2017-11-09'];
+    $scope.searchResult1 = Math.round((a[b]['4. close'])*100)/100;
+    forsake=Math.round(change*100)/100;
+    $scope.searchResult2 = forsake;
+    if(forsake<0){
+       
+        $('#willchange').addClass('blueCell');
+        $("#willchange").append("<img src='Red_Arrow_Down.png' width='10px'>");
+    }
+    if(change>=0){
+      //alert("yay");
+      $('#willchange').addClass('greenCell');
+      $("#willchange").append("<img src='Green_Arrow_Up.png' width='10px'>");
+    }
+    $scope.searchResult2 = Math.round(change*100)/100;
+    $scope.change_Percent = change_percent;
+    $scope.open = Math.round(open*100)/100;
+    $scope.low = low;
+    $scope.high = high;
+    $scope.volume = volume;
+
+    $scope.price(); }
+
+}, function (response) {
+              
+              // on error
+              console.log(response.data,response.status);
+              
+          }); }
+
+  $scope.newsfeed = function(){
+    $("#newsbut").addClass('active')
+    $("#stockbut").removeClass('active')
+    $("#hisbut").removeClass('active');
+    $scope.one=false;
+    $scope.two=true;
+    $scope.three=false;
+    console.log('index.php?searchText3='+$scope.searchText+',func=func5');
+               //('index.php?searchText3='+$scope.searchText+'&func=func3'),
+
+$http.get(
+   
+    'index.php?searchText3='+$scope.searchText+'&func=func5',
+   //method: 'GET'
+
+  // params: {searchText:$scope.searchText,func:'func3'}
+  ).then(function successCallback(jsonData) {
+
+
+    $scope.html_text1=jsonData.data[0].first["Link"];
+    $scope.html_text2=jsonData.data[0].first["Title"];
+    $scope.html_text3=jsonData.data[0].first["Date"];
+    $scope.html_text4=jsonData.data[0].first["Author"];
+    $scope.html_text5=jsonData.data[1].second["Link"];
+    $scope.html_text6=jsonData.data[1].second["Title"];
+    $scope.html_text7=jsonData.data[1].second["Date"];
+    $scope.html_text8=jsonData.data[1].second["Author"];
+    $scope.html_text9=jsonData.data[2].third["Link"];
+    $scope.html_text10=jsonData.data[2].third["Title"];
+    $scope.html_text11=jsonData.data[2].third["Date"];
+    $scope.html_text12=jsonData.data[2].third["Author"];
+    $scope.html_text13=jsonData.data[3].four["Link"];
+    $scope.html_text14=jsonData.data[3].four["Title"];
+    $scope.html_text15=jsonData.data[3].four["Date"];
+    $scope.html_text16=jsonData.data[3].four["Author"];
+    $scope.html_text17=jsonData.data[4].five["Link"];
+    $scope.html_text18=jsonData.data[4].five["Title"];
+    $scope.html_text19=jsonData.data[4].five["Date"];
+    $scope.html_text20=jsonData.data[4].five["Author"];
+
+
+//document.getElementsByClassName("cont4").innerHTML = html_text;
+});}
+
+ $scope.price = function(){
+  $scope.chartprog=true;
+  $scope.chartprogsee=false;
+  $scope.isProgessBarVisible=false;
+  //$scope.isProgessBarVisible1=true;
+$http.get(
+   
+    'index.php?links2var='+$scope.searchText+'&func=func2',
+   //method: 'GET'
+
+  // params: {searchText:$scope.searchText,func:'func3'}
+  ).then(function successCallback(response) {
+    if(Object.keys(response.data).length==0){
+      $scope.chartprog=false;
+      $scope.chartprogsee=false;
+      $scope.show=true;
+    }
+    if(typeof response.data != 'object'){
+      $scope.chartprog=false;
+      $scope.chartprogsee=false;
+      $scope.show=true;
+    }
+    else{
+    $scope.chartprog=false;
+    $scope.chartprogsee=true;
+    var a = response.data['Time Series (Daily)'];
+    var dates = Object.keys(a);
+    //$scope.searchResult3 = dates;
+    
+    dates1 = [];
+    dates2 = [];
+    for(each in a){
+
+      //$scope.searchResult3 = a[each]['4. close'];
+      dates1.push(a[each]['4. close']);
+      dates2.push(a[each]['5. volume']);
+
+    }
+    
+     resDate = dates.slice(0,120);
+ resSMA = dates1.slice(0,120);
+ resVolume = dates2.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ for(q=0;q<resDate.length;q++){
+   temp2 = resDate[q].slice(5,7);
+   temp3 = resDate[q].slice(8,11);
+   resDate2[q]= temp2 + '/' + temp3;
+  
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ resVolume1 = resVolume.map(parseFloat).reverse();
+
+ new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: ''+$scope.searchText+ 'Stock Price and Volume'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+
+
+        xAxis: {
+        
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate1
+        
+    },
+        
+        
+        yAxis: [{
+    
+        title: {
+
+            text: 'Stock Price',
+            
+        },
+        tickInterval: 5,
+
+       // min: firstMin,
+        //max: firstMax
+
+        
+        
+    }, { // Secondary yAxis
+      
+        
+        title: {
+
+            text: 'Volume',
+            
+        },
+        tickInterval: 80000000,
+        //min: secondMin,
+        //max: secondMax,
+        
+        opposite: true
+        
+    }],
+    
+    legend: {
+        
+        align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+        
+        y: 0,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    plotOptions: {
+      series:{
+        stacking: 'normal'
+      }
+    },
+     plotOptions: {
+              series : {
+                 stacking: 'normal'
+              },
+              area: {
+                  marker: {
+                      radius: 1
+                  },
+                  lineWidth: 2,
+                  states: {
+                      hover: {
+                          lineWidth: 1
+                      }
+                  },
+                  threshold: null
+              }
+          },
+
+        series: [{
+            type: 'area',
+            
+            color: '#ff8080',
+            name: ' Price',
+            data: resSMA1
+            
+            
+            
+        },
+        {
+            type: 'column',
+            color: '#fff',
+            name: ' Volume',
+            data: resVolume1,
+            yAxis: 1
+            
+        }]
+    });}
+    
+  });
+  
+ }
+
+  $scope.first = function(event,event1){
+
+    //alert(event.target.id);
+  
+
+$http.get(
+   
+    'index.php?symbol='+$scope.searchText+'&func=func6&func1='+event+'',
+   //method: 'GET'
+
+  // params: {searchText:$scope.searchText,func:'func3'}
+  ).then(function successCallback(response) {
+    if(Object.keys(response.data).length==0){
+      $scope.chartprogsee=false;
+      $scope.chartprog=false;
+      $scope.show=true;
+    }
+    if(typeof response.data != 'object'){
+      $scope.chartprogsee=false;
+      $scope.chartprog=false;
+      $scope.show=true;
+
+    }
+    else{
+
+    $scope.mystery = event;
+    symbol = $scope.searchText;
+    if(event == "SMA"){
+    //if(event.target.id == "SMA"){
+    var6 = response.data['Technical Analysis: SMA'];
+     resultj= [];
+     resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["SMA"]);
+      resultj.push(each);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ for(q=0;q<resDate.length;q++){
+   temp2 = resDate[q].slice(5,7);
+   temp3 = resDate[q].slice(8,11);
+   resDate2[q]= temp2 + '/' + temp3;
+  
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: 'Simple Moving Average (SMA)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'SMA',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        
+    }, 
+    legend: {
+        align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+        
+        y: 100,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+   
+    }
+    else if(event=="EMA"){
+
+        var6 = response.data["Technical Analysis: EMA"];
+
+ resultj = [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["EMA"]);
+      resultj.push(each);
+     
+   }
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2 = [];
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '/' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse(); 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: 'Exponential Moving Average (EMA)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'EMA',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        
+    }, 
+    legend: {
+       align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+        
+        y: 200,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+        xAxis: {
+        
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate1
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+
+
+   }
+
+   else if (event =="ADX"){
+
+   var6 =  response.data["Technical Analysis: ADX"];
+ 
+ resultj= [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["ADX"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '/' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: 'Average Directional moving Index'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'ADX',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+      
+        y: 0,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+   
+   }
+   else if(event == 'STOCH'){
+      
+      var6 =  response.data["Technical Analysis: STOCH"];
+ //var7 = var6["2017-10-17"];
+ 
+ resultj= [];
+ resultl = [];
+ resultl2 = [];
+   for(each in var6){
+      resultl.push(var6[each]["SlowK"]);
+      resultl2.push(var6[each]["SlowD"]);
+      resultj.push(each);
+     
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resStoch = resultl2.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ resSMA2 = resStoch.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+            
+        },
+         title: {
+            text: 'Stochastic Oscillatoe(STOCH)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+          slowkmatype: 1,
+          slowdmatype: 1,
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'STOCH',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+        
+        y: 0,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol + ' SlowK',
+            color: '#ff8080',
+            
+            data: resSMA1
+          
+            
+        },
+        {
+            type: 'line',
+            name: symbol + ' SlowD',
+            color: '#0000ff',
+            
+            data: resSMA2
+          
+            
+        }]
+    });
+
+   }
+
+   else if(event == 'RSI'){
+
+      var6 =  response.data["Technical Analysis: RSI"];
+ var7 = var6["2017-10-17"];
+ //document.write(var7);
+ resultj= [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["RSI"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: 'Relative Strength Index (RSI)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'RSI',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+     
+        y: 0,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+   
+   }
+
+   else if(event == 'CCI'){
+var6 =  response.data["Technical Analysis: CCI"];
+ var7 = var6["2017-10-17"];
+ //document.write(var7);
+ resultj= [];
+ resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["CCI"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: 'Commodity Channel Index (CCI)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'CCI',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+        
+        y: 0,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+    });
+   
+
+   }
+
+   else if(event == 'BBANDS'){
+      
+      var6 =  response.data["Technical Analysis: BBANDS"];
+ //var7 = var6["2017-10-17"];
+ 
+ resultj= [];
+ resultl = [];
+ resultl2 = [];
+resultl3=[];
+   for(each in var6){
+      resultl.push(var6[each]["Real Lower Band"]);
+      resultl2.push(var6[each]["Real Middle Band"]);
+      resultl3.push(var6[each]["Real Upper Band"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resStoch = resultl2.slice(0,120);
+ resSMA = resultl.slice(0,120);
+  resFinal = resultl3.slice(0,120);
+ 
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ resSMA2 = resStoch.map(parseFloat).reverse();
+ resSMA3 = resFinal.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: 'Bollinger Bands  (BBANDS)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'SMA',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+        y: 0,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol +' Real Lower Band',
+            color: '#ff8080',
+            
+            data: resSMA1
+          
+            
+        },
+        {
+            type: 'line',
+            name: symbol +' Real Middle Band',
+            color: '#0000ff',
+            
+            data: resSMA2
+          
+            
+        },{
+            type: 'line',
+            name: symbol +' Real Upper Band',
+            color: 'black',
+            
+            data: resSMA3
+          
+            
+        }]
+    });
+
+   }
+
+   else if(event == 'MACD'){
+      
+      var6 =  response.data["Technical Analysis: MACD"];
+ //var7 = var6["2017-10-17"];
+ 
+ resultj= [];
+ resultl = [];
+ resultl2 = [];
+resultl3=[];
+   for(each in var6){
+      resultl.push(var6[each]["MACD_Hist"]);
+      resultl2.push(var6[each]["MACD"]);
+      resultl3.push(var6[each]["MACD_Signal"]);
+      resultj.push(each);
+      //resultk = resultl.map(ParseFloat);
+      //resultl.push(var6[each]["SMA"]);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resStoch = resultl2.slice(0,120);
+ resSMA = resultl.slice(0,120);
+  resFinal = resultl3.slice(0,120);
+ 
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ //document.write(resDate1);
+ for(q=0;q<resDate.length;q++){
+   //document.write(resDate[q].slice(5,));
+   temp2 = resDate[q].slice(5,7);
+   //document.write(temp2);
+   temp3 = resDate[q].slice(8,11);
+   //document.write(temp3);
+   resDate2[q]= temp2 + '-' + temp3;
+   //document.write(resDate2[q]);
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ resSMA2 = resStoch.map(parseFloat).reverse();
+ resSMA3 = resFinal.map(parseFloat).reverse();
+ //document.write(resSMA);
+ 
+
+      new Highcharts.Chart({
+        chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: 'Moving Average Convergence/Divergence (MACD)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 1,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'MACD',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        //min:100,
+        //tickInterval: 8
+        
+    }, 
+    legend: {
+        align: 'center',
+        verticalAlign: 'bottom',
+        x: 0,
+       
+        y: 0,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        //type: 'datetime',
+        
+        //allowDecimals: true,
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol + ' MACD_Hist',
+            color: '#ff8080',
+            
+            data: resSMA1
+          
+            
+        },
+        {
+            type: 'line',
+            name: symbol + ' MACD',
+            color: '#0000ff',
+            
+            data: resSMA2
+          
+            
+        },{
+            type: 'line',
+            name: symbol +' MACD_Signal',
+            color: 'black',
+            
+            data: resSMA3
+          
+            
+        }]
+    });
+
+   }
+
+   
+
+   
+
+    $scope.lese('SMA');}
+   
+   
+
+    
+    });
+
+  }
+  $scope.lese1 = function(){
+FB.ui(
+ {
+ method: 'feed',
+ name: 'NamrathaApp',
+ 
+ 
+ description: 'My Application',
+
+
+ message: ''
+ });
+}
+ 
+$scope.lese = function(event2){
+  if(event2 == "yo"){
+
+$http.get(
+   
+    'index.php?symbol='+$scope.searchText+'&func=func6&func1='+$scope.mystery+'',
+   //method: 'GET'
+
+  // params: {searchText:$scope.searchText,func:'func3'}
+  ).then(function successCallback(response) {
+
+
+    //$scope.mystery = event;
+    symbol = $scope.searchText;
+    if($scope.mystery == "SMA"){
+    //if(event.target.id == "SMA"){
+    var6 = response.data['Technical Analysis: SMA'];
+     resultj= [];
+     resultl = [];
+ 
+   for(each in var6){
+      resultl.push(var6[each]["SMA"]);
+      resultj.push(each);
+   }
+//document.write(resultj);
+ resDate = resultj.slice(0,120);
+ resSMA = resultl.slice(0,120);
+ resDate1 = [];
+ resSMA1 = [];
+ resDate2=[];
+
+ for(q=0;q<resDate.length;q++){
+   temp2 = resDate[q].slice(5,7);
+   temp3 = resDate[q].slice(8,11);
+   resDate2[q]= temp2 + '/' + temp3;
+  
+ }
+  resDate1 = resDate2.reverse();
+ resSMA1 = resSMA.map(parseFloat).reverse();
+ var options = {
+  chart: {
+            renderTo: document.getElementsByClassName("cont3")[0],
+            type: 'line',
+            zoomType: 'x',
+            panning: true,
+            panKey: 'shift'
+            
+        },
+         title: {
+            text: 'Simple Moving Average (SMA)'
+        },
+        subtitle: {
+
+            text: '<a href="https://www.alphavantage.co/">Source: Aplha Vantage </a>'
+        },
+        plotOptions: {
+    series: {
+        marker: {
+            enabled: true,
+            symbol: 'circle',
+
+            radius: 2
+        }
+    }
+},
+        
+        yAxis: {
+         tickInterval : 3.5,
+       
+        labels: {
+            
+            style: {
+                color: Highcharts.getOptions().colors[1],
+               
+            }
+        },
+        title: {
+
+            text: 'SMA',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+        
+    }, 
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        x: 0,
+        verticalAlign: 'top',
+        y: 150,
+        floating: false,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    
+        xAxis: {
+        
+        rotation: 45,
+        tickInterval: 5,
+        categories: resDate2
+        
+    },
+    
+
+        series: [{
+            type: 'line',
+            name: symbol,
+            color: '#ff8080',
+            
+            data: resSMA1
+            
+            
+            
+        }]
+
+ };
+
+ var exportUrl = 'http://export.highcharts.com/';
+
+// POST parameter for Highcharts export server
+var object = {
+    options: JSON.stringify(options),
+    type: 'image/png',
+    async: true
+};
+
+
+
+// Ajax request
+/*
+$.ajax({
+    type: 'post',
+    url: exportUrl,
+    data: object,
+    success: function (data) {
+        // Update "src" attribute with received image URL
+        $('#chart').attr('src', exportUrl + data);
+    }
+});
+*/
+/*
+$.ajax({
+  type: 'post',
+  url: "https://graph.facebook.com/me/photos",
+  data: {
+                message: "Your Msg Goes Here",
+                url: object,
+                access_token: '1950967881809674|EgUqaU5iXQIMQ5ptIDPjs-EMzDo',
+                format: "json"
+            },
+            success: function(data){
+               alert("POST SUCCESSFUL"); }
+})
+
+*/
+/*
+var imgURL = 
+        FB.api('/photos', 'post', {
+            message: 'photo description',
+            access_token: 1950967881809674|EgUqaU5iXQIMQ5ptIDPjs-EMzDo, 
+            url: object
+        }, function (response) {
+
+            if (!response || response.error) {
+                alert('Error occured:' + response);
+            } else {
+                alert('Post ID: ' + response.id);
+            }
+
+        });
+        */
+
+
+}
+});
+
+
+  }
+
+  //alert($scope.mystery);
+}
+ 
+}]);
+
+
+</script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+</body>
+</html>
+
+Back End with PHP:
+<?php
+
+//$data = json_decode(file_get_contents("php://input"));
+//$data = json_decode($_GET("php://input"));
+//$search = $data->searchText;
+//$history = $data->searchText1;
+//$links = $data->links2var;
+
+//$func = $data->func;
+$func = $_GET['func'];
+
+if($func=='func1'){
+//$table = $data->table1;
+$table = $_GET['table1'];	
+$json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='.$table.'&apikey=BVFQG1A5Y8XQTOQG&outputsize=full');
+echo $json;
+
+}
+
+if($func=='func2'){
+$links=$_GET['links2var'];
+
+$json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='.$links.'&apikey=BVFQG1A5Y8XQTOQG&outputsize=full');
+echo $json;
+
+}
+
+
+if($func=='func3'){
+//$search = $data->searchText;
+$search = $_GET['searchText'];	
+$json = file_get_contents('http://dev.markitondemand.com/MODApis/Api/v2/Lookup/json?input='.$search.'');
+echo $json;
+}
+
+if($func=='func4'){
+//$search1 = $data->searchText1;
+$search1=$_GET['searchText1'];
+$json = file_get_contents('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='.$search1.'&apikey=BVFQG1A5Y8XQTOQG&outputsize=full');
+echo $json;
+}
+if($func=='func6'){
+//$fun2=$data->func1;
+//$symbol=$data->symbol;
+$fun2=$_GET['func1'];
+$symbol=$_GET['symbol'];
+$json = file_get_contents('https://www.alphavantage.co/query?function='.$fun2.'&symbol='.$symbol.'&interval=daily&time_period=10&series_type=open&apikey=BVFQG1A5Y8XQTOQG');
+echo $json;
+}
+if($func=='func5'){
+//$search3 = $data->searchText3;
+$search3=$_GET['searchText3'];
+$xml = simplexml_load_file("https://seekingalpha.com/api/sa/combined/".$search3.".xml");
+$namespaces = $xml->getNamespaces(true);
+$arrayMatch = array();
+foreach ($xml->channel->item as $item) 
+{ 
+	if(strpos((string)$item->link,"article")!== false){
+    $obj = new stdClass();
+    $obj->Author = (string) $item->children($namespaces["sa"])->author_name; 
+    $obj->Date = substr((string)$item->pubDate,0,25);// for php < 5.2.0
+    $obj->Title = (string) $item->title; 
+    $obj->Link  = (string) $item->link; 
+    $arrayMatch[] = $obj;
+}
+if (sizeof($arrayMatch)>=5){
+		break;
+	}
+} 
+$newsInfo = [];
+array_push($newsInfo,array("first"=>$arrayMatch[0]));
+array_push($newsInfo,array("second"=>$arrayMatch[1]));
+array_push($newsInfo,array("third"=>$arrayMatch[2]));
+array_push($newsInfo,array("four"=>$arrayMatch[3]));
+array_push($newsInfo,array("five"=>$arrayMatch[4]));
+$newsJson = json_encode($newsInfo);
+
+echo $newsJson;
+
+}
+?>
